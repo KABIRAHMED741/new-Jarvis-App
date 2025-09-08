@@ -1,0 +1,6 @@
+/envjarvic
+node_modules
+contacts.csv
+jarvis.db
+/engine/__pycache__
+/engine/cookies.json
