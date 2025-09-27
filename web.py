@@ -16,14 +16,12 @@ def start_jarvis():
     global jarvis_process
     try:
         if jarvis_process is None or jarvis_process.poll() is not None:
-            run_path = r"C:\Users\kabir\jarvic2.0\run.py"
-            pythonw = r"C:\Users\kabir\jarvic2.0\envjarvis\Scripts\pythonw.exe"
+            run_path = os.path.join(os.getcwd(), "run.py")
 
-            # Start Jarvis silently in background
+            # Start Jarvis in background (cross-platform)
             jarvis_process = subprocess.Popen(
-                [pythonw, run_path],
-                cwd=os.path.dirname(run_path),
-                creationflags=subprocess.CREATE_NO_WINDOW
+                ["python", run_path],
+                cwd=os.path.dirname(run_path)
             )
             return jsonify({"status": "success", "message": "Jarvis started!"})
         else:
